@@ -15,7 +15,6 @@ class ActivityDetail(generics.RetrieveDestroyAPIView):
 
     # Override the delete method to add a permission check for the is_staff attribute
     def delete(self, request, *args, **kwargs):
-        print(request.user)
         if request.user.is_staff:
             return self.destroy(request, *args, **kwargs)
         else:
